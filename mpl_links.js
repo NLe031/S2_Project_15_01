@@ -12,13 +12,14 @@
 
 */
 
-// the allselect variable references all select elements nested within the govLinks form.
 
 window.addEventListener("load", function () {
-    var allSelect = document.forms.govLinks.getelementsbyTagName("select");
+    // the allselect variable references all select elements nested within the govLinks form.
+    var allSelect = document.forms.govLinks;
+    //this for loop loops through all the links to find which one was selected
     for (var i = 0; i < allSelect.length; i++) {
-        allSelect.addEventListener("onchange", function () {
-            allSelect.location.href.value = allSelect;
-        })
-    }
-})
+        allSelect[i].onchange = function (e) {
+            document.location.href = e.target.value;
+        };
+    };
+});
